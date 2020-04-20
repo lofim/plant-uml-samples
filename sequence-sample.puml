@@ -1,0 +1,41 @@
+@startuml
+
+skinparam shadowing false
+skinparam SequenceLifeLineBackgroundColor #fff2cc
+skinparam SequenceLifeLineBorderColor #d6b656
+skinparam SequenceParticipantBorderThickness 1
+skinparam SequenceActorBorderThickness 1
+skinparam SequenceDividerBorderThickness 1
+skinparam SequenceBoxBackgroundColor #fbfbfb
+skinparam SequenceBoxBorderColor #dfdfdf
+skinparam SequenceDividerBorderThickness 1
+skinparam NoteBackgroundColor #fbfbfb
+skinparam NoteBorderColor #dfdfdf
+skinparam NoteFontColor #A9A9A9
+skinparam NoteFontSize 10
+skinparam ParticipantFontSize 12
+skinparam ArrowFontSize 12
+hide footbox
+
+title Use case name
+
+actor "User" as user
+
+participant "Sync Service" as serviceA
+participant "Async Service" as serviceB
+
+user -> serviceA: Invoke sync service API
+activate serviceA
+
+serviceA -> serviceB: Invoke async service API
+activate serviceB
+serviceB -> serviceA: return accepted
+
+serviceA -> user: return result
+deactivate serviceA
+
+serviceB -> serviceA: Notify sync service
+deactivate serviceB 
+activate serviceA
+
+@enduml

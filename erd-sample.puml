@@ -1,0 +1,31 @@
+@startuml
+
+skinparam shadowing false
+skinparam ClassBackgroundColor #fff
+skinparam ClassBorderColor #d6b656
+skinparam ClassAttributeFontColor #444
+skinparam ClassAttributeIconSize 8
+skinparam ClassHeaderBackgroundColor #fff2cc
+' skinparam linetype ortho
+
+hide circle
+hide footbox
+
+title User Service
+
+entity "**user**" as user {
+    * id: CHAR(36) <<PK, UUID>>
+    --
+    * name: VARCHAR(255)
+    * surname: VARCHAR(255)
+    comment: TEXT
+}
+
+entity "**user_prject**" as project {
+    * project: VARCHAR(255) <<PK>>
+    * user_id: CHAR(36) <<PK, UUID>>
+}
+
+user ||..|{ project
+
+@enduml
