@@ -17,7 +17,7 @@ skinparam ParticipantFontSize 12
 skinparam ArrowFontSize 12
 hide footbox
 
-title Use case name
+title sample-sequence
 
 actor "User" as user
 

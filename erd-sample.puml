@@ -11,7 +11,7 @@ skinparam ClassHeaderBackgroundColor #fff2cc
 hide circle
 hide footbox
 
-title User Service
+title sample-erd
 
 entity "**user**" as user {
     * id: CHAR(36) <<PK, UUID>>
@@ -21,7 +21,7 @@ entity "**user**" as user {
     comment: TEXT
 }
 
-entity "**user_prject**" as project {
+entity "**user_project**" as project {
     * project: VARCHAR(255) <<PK>>
     * user_id: CHAR(36) <<PK, UUID>>
 }
